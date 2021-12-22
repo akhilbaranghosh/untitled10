@@ -32,9 +32,7 @@ print_numbers()->
 
 sending_numbers(1,Pid)->Pid!1;
 sending_numbers(N,Pid)->
-  Pid!{self(),N},
-  receive
-    {Pid,print_successful} ->
-      sending_numbers(N-1,Pid)
-  end.
+  Pid!N,
+%%  io:fwrite("number ~p~n",[N]),
+  sending_numbers(N-1,Pid).
 
