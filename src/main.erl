@@ -25,9 +25,9 @@ average(L)->
   end.
 print_numbers()->
   receive
-    {Pid,N} ->
+    N ->
       io:fwrite("the number sent is:~p~n",[N]),
-      Pid!{self(),print_successful}
+      print_numbers()
   end.
 
 sending_numbers(1,Pid)->Pid!1;
