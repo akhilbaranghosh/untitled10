@@ -5,9 +5,12 @@
 %%%
 %%% @end
 %%% Created : 23. Dec 2021 11:56
+%%% Coding: utf-8
 %%%-------------------------------------------------------------------
 -module(basics_of_erlang).
 -author("akhil").
 
 %% API
--export([]).
+-export([start/0]).
+start()->ok.
+
