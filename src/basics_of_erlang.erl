@@ -13,5 +13,5 @@
 %% API
 -export([start/0]).
 
-start()->ok.
+start()->'hello world'.
 
