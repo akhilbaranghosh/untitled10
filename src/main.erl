@@ -9,19 +9,20 @@
 -module(main).
 -author("akhil").
 %% API
--export([start/1,average/1,sending_numbers/2,print_numbers/0]).
+-export([start/1,average/2,sending_numbers/2,print_numbers/0]).
 %%factorial(0,Acc) -> Acc;
 %%factorial(N,Acc) -> factorial(N-1,Acc*N).
 
 start(X)->
   io:fwrite("the value of 10 ~p :",[X]).
 
-average(L)->
+average(L,Pid)->
   receive
     N ->
       Avg=(lists:nth(1,L)+N)/2,
+      Pid!Avg,
       io:fwrite("cuerrent average: ~p~n",[Avg]),
-      average([Avg|L])
+      average([Avg|L],Pid)
   end.
 print_numbers()->
   receive
