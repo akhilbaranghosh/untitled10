@@ -14,6 +14,5 @@
 -export([start/0]).
 
 start()->
-  Beam=beam(),
-  Beam.
+  hello.
 
