@@ -9,9 +9,11 @@
 %%%-------------------------------------------------------------------
 -module(basics_of_erlang).
 -author("akhil").
-
+%%-vsn(1.05).
 %% API
 -export([start/0]).
 
-start()->'hello world'.
+start()->
+  Beam=beam(),
+  Beam.
 
