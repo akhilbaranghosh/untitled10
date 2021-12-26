@@ -9,6 +9,7 @@
 -module(main).
 -author("akhil").
 %% API
+%%-file(akhil,main).
 -export([start/1,average/2,sending_numbers/2,print_numbers/0]).
 %%factorial(0,Acc) -> Acc;
 %%factorial(N,Acc) -> factorial(N-1,Acc*N).
