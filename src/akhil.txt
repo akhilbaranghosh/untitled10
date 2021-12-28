@@ -1,0 +1,3 @@
+Erlang is a great programming language.
+The problem of erlang is the unbound and bound variable concept.
+The recursion concept is the most vital part of the erlang.
