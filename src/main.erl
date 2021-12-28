@@ -10,12 +10,18 @@
 -author("akhil").
 %% API
 %%-file(akhil,main).
--export([start/1,average/2,sending_numbers/2,print_numbers/0]).
+-export([start/0,average/2,sending_numbers/2,print_numbers/0]).
 %%factorial(0,Acc) -> Acc;
 %%factorial(N,Acc) -> factorial(N-1,Acc*N).
-
-start(X)->
-  io:fwrite("the value of 10 ~p :",[X]).
+start()->
+  {ok, Read}=file:open("C:\\Users\\akhil\\IdeaProjects\\untitled10\\src\\akhil.txt",read),
+  {ok, Write}=file:open("C:\\Users\\akhil\\IdeaProjects\\untitled10\\src\\akhil_write.txt",write),
+  Val1=io:get_line(Read,'\n'),
+  io:fwrite(Val1),
+  io:format(Write,"~s~n",["Hello World!!"]),
+  'Executed Successfully'.
+%%start(X)->
+%%  io:fwrite("the value of 10 ~p :",[X]).
 
 average(L,Pid)->
   receive
