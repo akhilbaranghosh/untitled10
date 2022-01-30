@@ -2,7 +2,7 @@
 %%% @author akhil
 %%% @copyright (C) 2021, <COMPANY>
 %%% @doc
-%%%
+%%% io:get_chars("Value extracted: ",10).
 %%% @end
 %%% Created : 20. Dec 2021 15:49
 %%%-------------------------------------------------------------------
@@ -10,7 +10,7 @@
 -author("akhil").
 %% API
 %%-file(akhil,main).
--export([start/0,average/2,sending_numbers/2,print_numbers/0]).
+-export(['anonymous function'/1,start/0,average/2,sending_numbers/2,print_numbers/0,try_table/2]).
 %%factorial(0,Acc) -> Acc;
 %%factorial(N,Acc) -> factorial(N-1,Acc*N).
 start()->
@@ -19,7 +19,14 @@ start()->
   Val1=io:get_line(Read,'\n'),
   io:fwrite(Val1),
   io:format(Write,"~s~n",["Hello World!!"]),
+  file:close(Read),
+  file:close(Write),
   'Executed Successfully'.
+
+'anonymous function'(L)->
+  Fun=fun(N)-> N>10 end,
+  Val=lists:filter(Fun,L),
+  Val.
 %%start(X)->
 %%  io:fwrite("the value of 10 ~p :",[X]).
 
@@ -44,3 +51,7 @@ sending_numbers(N,Pid)->
 %%  io:fwrite("number ~p~n",[N]),
   sending_numbers(N-1,Pid).
 
+try_table(N1,N2) ->
+  mnesia:create_table(foo,
+    [{ram_copies, [N1, N2]},
+      {attributes, record_info(fields, foo)}]).
