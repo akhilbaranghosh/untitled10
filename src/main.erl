@@ -10,10 +10,14 @@
 -author("akhil").
 %% API
 %%-file(akhil,main).
--export(['anonymous function'/1,start/0,average/2,sending_numbers/2,print_numbers/0,try_table/2]).
+-export(['anonymous function'/1,start/0,average/2,sending_numbers/2,print_numbers/0]).
 %%factorial(0,Acc) -> Acc;
 %%factorial(N,Acc) -> factorial(N-1,Acc*N).
 start()->
+%%  N1=10,N2=20,
+%%  mnesia:create_table(foo,
+%%    [{ram_copies, [N1, N2]},
+%%      {attributes, record_info(fields, foo)}]).
   {ok, Read}=file:open("C:\\Users\\akhil\\IdeaProjects\\untitled10\\src\\akhil.txt",read),
   {ok, Write}=file:open("C:\\Users\\akhil\\IdeaProjects\\untitled10\\src\\akhil_write.txt",write),
   Val1=io:get_line(Read,'\n'),
@@ -51,7 +55,9 @@ sending_numbers(N,Pid)->
 %%  io:fwrite("number ~p~n",[N]),
   sending_numbers(N-1,Pid).
 
-try_table(N1,N2) ->
-  mnesia:create_table(foo,
-    [{ram_copies, [N1, N2]},
-      {attributes, record_info(fields, foo)}]).
+%%testing_funtion() ->
+%%  Val=fun akhilfun(A)-> A+1 end.
+%%try_table(N1,N2) ->
+%%  mnesia:create_table(foo,
+%%    [{ram_copies, [N1, N2]},
+%%      {attributes, record_info(fields, foo)}]).
